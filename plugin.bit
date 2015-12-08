@@ -1,0 +1,87 @@
+<?php
+// =====================================================================
+// PLUGIN INFO
+// =====================================================================
+$_PLUGIN_CONFIG['DATA'] = array(
+	'author'=>'Udo Laschet',
+	'version'=>'1.0',
+	'url'=>'http://aktion-prodampf.e-wolke.de/download/cards_image.zip'
+);
+
+// =====================================================================
+// PLUGIN CLASS
+// =====================================================================
+class PLUGIN_CARDS_IMAGE extends Plugin
+{
+	public function blog_body()
+	{
+		global $post;
+		global $page;
+		global $where_am_i;
+		global $settings;
+		global $category;
+
+		$ci = array(
+			'image'=>$settings['url'].HTML_PATH_ADMIN_TEMPLATES.'easy/css/img/mrnibbler128.png',
+			'url'=>BLOG_URL,
+         'string'=>'//',
+         'newstring'=>$settings['url'],
+         'alt'=>'Logo anklicken, um zurück zur Startseite zu gelangen.'       
+
+		);
+
+      // If the string contains "//" after http(s)//: ...
+      // This happens sometimes, if Nibbleblog is installed in a 'subdomain.domain.tld'
+
+      if(strpos($ci['image'], $ci['string'], 8)!==false) {
+        $ci['newstring'] = substr($settings['url'], 0, -1);
+        $ci['image'] = $ci['newstring'].HTML_PATH_ADMIN_TEMPLATES.'easy4/css/img/mrnibbler128.png';
+      }
+
+      if(file_exists(THEME_IMG.'image.png'))
+			$ci['image'] = $ci['newstring'].HTML_THEME_IMG.'image.png';
+         
+      if(file_exists(PATH_UPLOAD.'t_0_o.png'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'t_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'o_0_o.png'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'o_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'a_0_o.png'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'a_0_o.png';
+ 
+      if(file_exists(PATH_UPLOAD.'t'.substr($where_am_i[1], 0, -6).$category['id'].'_0_o.png') && ($where_am_i[1]=='category'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'t'.substr($where_am_i[1], 0, -6).$category['id'].'_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'o'.substr($where_am_i[1], 0, -6).$category['id'].'_0_o.png') && ($where_am_i[1]=='category'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'o'.substr($where_am_i[1], 0, -6).$category['id'].'_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'a'.substr($where_am_i[1], 0, -6).$category['id'].'_0_o.png') && ($where_am_i[1]=='category'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'a'.substr($where_am_i[1], 0, -6).$category['id'].'_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'t'.substr($where_am_i[1], 0, -2).$page['id'].'_0_o.png') && ($where_am_i[1]=='page'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'t'.substr($where_am_i[1], 0, -2).$page['id'].'_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'o'.substr($where_am_i[1], 0, -2).$page['id'].'_0_o.png') && ($where_am_i[1]=='page'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'o'.substr($where_am_i[1], 0, -2).$page['id'].'_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'a'.substr($where_am_i[1], 0, -2).$page['id'].'_0_o.png') && ($where_am_i[1]=='page'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'a'.substr($where_am_i[1], 0, -2).$page['id'].'_0_o.png';
+ 
+      if(file_exists(PATH_UPLOAD.'t'.substr($where_am_i[1], 0, -2).$post['id'].'_0_o.png') && ($where_am_i[1]=='post'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'t'.substr($where_am_i[1], 0, -2).$post['id'].'_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'o'.substr($where_am_i[1], 0, -2).$post['id'].'_0_o.png') && ($where_am_i[1]=='post'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'o'.substr($where_am_i[1], 0, -2).$post['id'].'_0_o.png';
+
+      if(file_exists(PATH_UPLOAD.'a'.substr($where_am_i[1], 0, -2).$post['id'].'_0_o.png') && ($where_am_i[1]=='post'))
+         $ci['image'] = $ci['newstring'].HTML_PATH_UPLOAD.'a'.substr($where_am_i[1], 0, -2).$page['id'].'_0_o.png';
+          
+		$html  = PHP_EOL.'            <!-- CARDS IMAGE -->'.PHP_EOL;
+      $html .= '            <a href="'.$settings['url'].'"><img src="'.$ci['image'].'" alt="'.$ci['alt'].'"></a>'.PHP_EOL;
+
+
+		return $html;
+	}
+}
+?>
