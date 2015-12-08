@@ -1,4 +1,4 @@
-# nibbleblog-plugin-cards-image
+# Plugin for Nibbleblog: CARDS IMAGE
 
 This Plugin for Nibbleblog allows, to show a picture, that is uploaded with the cms upload manager, if a specific page, post or category is displayed.
 
