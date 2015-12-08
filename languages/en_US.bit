@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Cards Image',
+	'DESCRIPTION'=>'Points to an image for every page, post and category, if a matching filename is found in the upload directory. Use Nibbleblogs upload manager to upload image files. FILE NAME REQUIREMENTS FOR IMAGES CALLED IN THEME a[pa=page OR po=post OR ca=category][#=ID of page, post, category].png - FILE NAME REQUIREMENTS FOR IMAGES CALLED IN CARDS GRAPH PLUGIN: o[pa=page OR po=post OR ca=category][#=ID of page, post, category].png - FILE NAME REQUIREMENTS FOR IMAGES CALLED IN CARDS TWITTER PLUGIN: t[pa=page OR po=post OR ca=category][#=ID of page, post, category].png - STARTS WITH: apa1.png, apo1.png, aca0.png, opa1.png, opo1.png, oca0.png, tpa1.png, tpo1.png, tca0.png'
+);
+
+?>
