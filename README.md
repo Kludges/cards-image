@@ -12,7 +12,7 @@ This Plugin for Nibbleblog allows, to show a picture, that is uploaded with the 
 
 What this plugin makes:
 
-A picture file 'image.png' in the THEMES/YOURTHEME/css/img/ directory is displayed instead of Nibbleblogs default theme image "Mr. Nibbler". This is a cute logo, but i think, it's not matching all needs. So, a default image for every theme could be installed. The 'imgage.png' couldn't be installed by using the upload manager; it must be uploaded with FTP.
+A picture file 'image.png' in the THEMES/YOURTHEME/css/img/ directory is displayed instead of Nibbleblogs default theme image "Mr. Nibbler". This is a cute logo, but i think, it's not matching all needs. So, a default image for every theme could be installed. The 'image.png' couldn't be installed by using the upload manager; it must be uploaded with FTP in the specified Theme directory.
 
 A uploaded picture file 'a.png' is displayed instead of the default and the default theme image.
 
